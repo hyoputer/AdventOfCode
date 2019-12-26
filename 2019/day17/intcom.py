@@ -26,7 +26,7 @@ class intcomProgram:
         except IndexError:
           self.code.append(0)
         except Exception as e:
-          print(e)
+         # print(e)
           return False
         else:
           break
