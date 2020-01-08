@@ -26,7 +26,7 @@ class intcomProgram:
         except IndexError:
           self.code.append(0)
         except Exception as e:
-          print(e)
+         # print(e)
           return False
         else:
           break
@@ -77,8 +77,11 @@ class intcomProgram:
       b = self.getV(1)
       self.code[self.getA(2)] = a*b
     elif self.opcode == 3:
+      adr = self.getA(0)
+      if len(self.code) <= adr:
+        raise IndexError
       a = self.Input.get(block=False)
-      self.code[self.getA(0)] = int(a)
+      self.code[adr] = int(a)
     elif self.opcode == 4:
       a = self.getV(0)
       self.Output.put(a, block=False)
